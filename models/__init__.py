@@ -45,5 +45,4 @@ def create_app():
     app.register_blueprint(reservation, url_prefix='/')
     app.register_blueprint(manage, url_prefix='/')
 
-
     return app
