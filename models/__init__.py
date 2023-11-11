@@ -5,7 +5,7 @@ flask setup
 import os
 
 from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
+
 
 from web_flask.models.views import views
 from web_flask.models.auth import auth
@@ -19,18 +19,11 @@ from web_flask.models.student import student
 from web_flask.models.vacation import vacation
 from web_flask.models.management import manage
 
-db = SQLAlchemy()
-user = os.getenv('FLASK_DB_USER')
-passwd = os.getenv('FLASK_DB_PWD')
-host = os.getenv('FLASK_DB_HOST')
-database = os.getenv('FLASK_DB__DB')
 
 def create_app():
     app = Flask(__name__)
     # database connection
-    app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql+mysqldb://{user}:{passwd}@{host}/{database}'
     app.config['SECRET_KEY'] = 'hard to guess string'
-    db.init_app(app)
 
     # blueprint registration
     app.register_blueprint(auth, url_prefix='/')
