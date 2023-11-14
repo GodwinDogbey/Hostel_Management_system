@@ -6,6 +6,7 @@ import os
 
 from flask import Flask
 
+
 from web_flask.models.views import views
 from web_flask.models.auth import auth
 from web_flask.models.staff import staff
@@ -17,7 +18,6 @@ from web_flask.models.reservation import reservation
 from web_flask.models.student import student
 from web_flask.models.vacation import vacation
 from web_flask.models.management import manage
-from  web_flask.student_model import student_views
 
 
 def create_app():
@@ -37,6 +37,5 @@ def create_app():
     app.register_blueprint(vacation, url_prefix='/')
     app.register_blueprint(reservation, url_prefix='/')
     app.register_blueprint(manage, url_prefix='/')
-    app.register_blueprint(student_views, url_prefix='/')
 
     return app
